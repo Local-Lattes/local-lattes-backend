@@ -14,7 +14,7 @@ namespace cafeRecAPI.Controllers
     public class CafeApiController : ControllerBase
     {
         private readonly ILogger<CafeApiController> _logger;
-        private readonly ICafeService cafeService;
+        private readonly ICafeService _cafeService;
         private readonly ICafeRepo _repository;
         public CafeApiController(ILogger<CafeApiController> logger, ICafeService CafeService, ICafeRepo repository)
         {
