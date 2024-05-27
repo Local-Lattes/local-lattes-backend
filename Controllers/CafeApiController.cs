@@ -19,19 +19,19 @@ namespace cafeRecAPI.Controllers
         public CafeApiController(ILogger<CafeApiController> logger, ICafeService CafeService, ICafeRepo repository)
         {
             _logger = logger;
-            cafeService = CafeService;
+            _cafeService = CafeService;
             _repository = repository;
         }
         [HttpGet("GetCafeList")]
         public async Task<List<Cafe>> GetCafeList(string location)
         {
-            var cafes = await cafeService.GetCafesAsync(location);
+            var cafes = await _cafeService.GetCafesAsync(location);
             return cafes;
         }
         [HttpGet("GetCafeListHardCoded")]
         public async Task<List<Cafe>> GetCafeListTEST()
         {
-            return await cafeService.GetCafesAsync("Auckland CBD auckland central");
+            return await _cafeService.GetCafesAsync("Auckland CBD auckland central");
         }
         [HttpGet("AucklandCBDcafes")]
         public async Task<IEnumerable<Cafe>> test()
