@@ -13,4 +13,3 @@ namespace cafeRecAPI.DTO
 		public IEnumerable<ReviewDto> Reviews { get; set; }
 	}
 }
-

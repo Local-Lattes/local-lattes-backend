@@ -11,13 +11,11 @@ namespace cafeRecAPI.Data
 	public class CafeDBContext : DbContext
 	{
         public CafeDBContext(DbContextOptions<CafeDBContext> options) : base(options) { }
-
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Cafe> Cafes { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<SearchLocation> Locations { get; set; }
         public DbSet<CafeSearchLocation> CafeSearchLocations { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SearchLocation>()
@@ -39,13 +37,9 @@ namespace cafeRecAPI.Data
 
             base.OnModelCreating(modelBuilder);
         }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLazyLoadingProxies();
         }
-
     }
-
-
 }

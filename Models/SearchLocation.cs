@@ -11,12 +11,9 @@ namespace cafeRecAPI.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
         [Required]
         public required string Location { get; set; }
-
         [JsonIgnore]
         public virtual ICollection<CafeSearchLocation> CafeSearchLocations { get; set; }
-
     }
 }

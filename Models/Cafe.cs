@@ -11,7 +11,6 @@ namespace cafeRecAPI.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
         public int Id { get; set; }
-
         [Required]
         public string? CafeName { get; set; }
         [Required]
@@ -19,13 +18,8 @@ namespace cafeRecAPI.Models
         [Required]
         public string PlaceId { get; set; }
         public double Rating { get; set; }
-
         public virtual ICollection<Review> Reviews { get; } = new List<Review>();
-
         [JsonIgnore]
         public virtual ICollection<CafeSearchLocation> CafeSearchLocations { get; set; }
-
-
-
     }
 }

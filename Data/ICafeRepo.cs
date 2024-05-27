@@ -14,15 +14,9 @@ namespace cafeRecAPI.Data
 		public Cafe GetCafeById(int id);
 		public bool CafeExists(int id);
 		//public IEnumerable<Cafe> GetCafeByTags(IEnumerable<string> tags);
-
 		public IEnumerable<Cafe> GetCafeByLocation(string location);
 		public IEnumerable<SearchLocation> GetAllLocations();
-
         public IEnumerable<string> GetAllLocationsString();
-
-
-
-
     }
 }
 

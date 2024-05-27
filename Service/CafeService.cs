@@ -28,7 +28,6 @@ class CafeService : ICafeService
         {
             var httpClient = new HttpClient();
             var response = new List<Cafe>();
-            
             //implement fuzzy search later 
             var existingLocation = CafeDBContext.Locations.FirstOrDefault(l => l.Location == location);
             if (existingLocation == null)
@@ -44,9 +43,7 @@ class CafeService : ICafeService
                 Console.WriteLine("Success");
                 return (List<Cafe>)_repository.GetCafeByLocation(location);
             }
-
             return response;
-
             //deleted old code
         }
         catch (Exception ex)
@@ -54,7 +51,6 @@ class CafeService : ICafeService
             Console.WriteLine(ex);
             return new List<Cafe>();
         }
-
     }
 }
 

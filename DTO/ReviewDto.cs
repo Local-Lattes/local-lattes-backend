@@ -6,4 +6,3 @@ namespace cafeRecAPI.DTO
 		public string? Text { get; set; }
 	}
 }
-

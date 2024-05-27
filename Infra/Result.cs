@@ -7,15 +7,10 @@ namespace cafeRecAPI.Infra
 {
 	public class Result
 	{
-      
         public bool Success { get; private set; }
         public string ErrorMessage { get; private set; }
         public Exception Exception { get; private set; }
-
-
         public bool Failure => !Success;
-
-
         protected Result(bool success, string errorMessage)
         {
             Contracts.Require((success || !string.IsNullOrEmpty(errorMessage)), "Create result");
@@ -25,8 +20,6 @@ namespace cafeRecAPI.Infra
             ErrorMessage = errorMessage;
             Exception = new Exception(errorMessage);
         }
-
-
         protected Result(bool success, Exception exception)
         {
             Contracts.Require((success || exception != null), "Create result");
@@ -36,26 +29,12 @@ namespace cafeRecAPI.Infra
             Exception = exception;
             ErrorMessage = exception.Message;
         }
-
-
         public static Result Fail(string message) => new Result(false, message);
-
-
         public static Result Fail(Exception exception) => new Result(false, exception);
-
-
         public static Result<T> Fail<T>(string message) => new Result<T>(default(T), false, message);
-
-
         public static Result<T> Fail<T>(Exception exception) => new Result<T>(default(T), false, exception);
-
-
         public static Result Ok() => new Result(true, String.Empty);
-
-
         public static Result<T> Ok<T>(T value) => new Result<T>(value, true, String.Empty);
-
-
         public static Result Combine(params Result[] results)
         {
             foreach (Result result in results)
@@ -63,26 +42,21 @@ namespace cafeRecAPI.Infra
                 if (result.Failure)
                     return result;
             }
-
             return Ok();
         }
-
     }
 
 
     public sealed class Result<T> : Result
     {
         private T _value;
-
         public T Value
         {
             get
             {
                 Contracts.Require(Success, $"Read result for {typeof(T)}");
-
                 return _value;
             }
-
             private set { _value = value; }
         }
 
@@ -101,7 +75,6 @@ namespace cafeRecAPI.Infra
             : base(success, errorMessage)
         {
             Contracts.Require((value != null || !success), $"Create result for {typeof(T)}");
-
             Value = value;
         }
 
@@ -109,7 +82,6 @@ namespace cafeRecAPI.Infra
             : base(success, exception)
         {
             Contracts.Require((value != null || !success), $"Create result for {typeof(T)}");
-
             Value = value;
         }
 
@@ -149,9 +121,7 @@ namespace cafeRecAPI.Infra
         public override bool Equals(object obj)
         {
             var other = obj as Result<T>;
-
             return other == null ? false : object.Equals(this.Value, other.Value);
-
         }
 
         public override int GetHashCode()
@@ -176,6 +146,4 @@ namespace cafeRecAPI.Infra
         {
         }
     }
-    
 }
-
