@@ -8,8 +8,9 @@ using cafeRecAPI.Models;
 using static cafeRecAPI.Models.CafeLocation;
 namespace cafeRecAPI.Data
 {
+
 	public class CafeDBContext : DbContext
-	{
+	{ 
     	public CafeDBContext(DbContextOptions<CafeDBContext> options) : base(options) { }
     	public DbSet<Review> Reviews { get; set; }
         public DbSet<Cafe> Cafes { get; set; }
