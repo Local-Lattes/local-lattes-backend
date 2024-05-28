@@ -10,8 +10,8 @@ namespace cafeRecAPI.Data
 {
 	public class CafeDBContext : DbContext
 	{
-        public CafeDBContext(DbContextOptions<CafeDBContext> options) : base(options) { }
-        public DbSet<Review> Reviews { get; set; }
+    	public CafeDBContext(DbContextOptions<CafeDBContext> options) : base(options) { }
+    	public DbSet<Review> Reviews { get; set; }
         public DbSet<Cafe> Cafes { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<SearchLocation> Locations { get; set; }
