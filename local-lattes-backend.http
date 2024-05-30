@@ -1,6 +1,0 @@
-@local_lattes_backend_HostAddress = http://localhost:5182
-
-GET {{local_lattes_backend_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

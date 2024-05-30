@@ -1,0 +1,6 @@
+@cafeRecAPI_HostAddress = http://localhost:5153
+
+GET {{cafeRecAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
