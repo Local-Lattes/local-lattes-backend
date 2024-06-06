@@ -15,7 +15,9 @@ public class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        builder.Services.AddDbContext<CafeDBContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("CafeDB")));
+        builder.Services.AddDbContext<CafeDBContext>(options =>
+            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
         builder.Services.AddScoped<ICafeRepo, CafeRepo>();
         builder.Services.AddScoped<ICafeService, CafeService>();
         var app = builder.Build();
@@ -27,8 +29,8 @@ public class Program
         }
         using (var scope = app.Services.CreateScope())
         {
-             var context = scope.ServiceProvider.GetRequiredService<CafeDBContext>();
-             context.Database.EnsureCreated();
+            var context = scope.ServiceProvider.GetRequiredService<CafeDBContext>();
+            context.Database.EnsureCreated();
         }
         app.UseHttpsRedirection();
         app.UseAuthorization();
