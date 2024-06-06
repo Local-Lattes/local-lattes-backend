@@ -12,12 +12,19 @@ docker compose up -d
 
 This is start a postgres server at port `20012`
 
-### Start dotnet server
+### Start .NET server
 
 To start the project run
 
 ```sh
 dotnet run
+```
+
+### Start .NET https server
+
+```sh
+dotnet dev-certs https --trust
+dotnet run --launch-profile https
 ```
 
 ### Creating database secrets
