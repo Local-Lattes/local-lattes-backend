@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
-using static cafeRecAPI.Models.CafeLocation;
 
 namespace cafeRecAPI.Models
 {
@@ -14,6 +13,6 @@ namespace cafeRecAPI.Models
         [Required]
         public required string Location { get; set; }
         [JsonIgnore]
-        public virtual ICollection<CafeSearchLocation> CafeSearchLocations { get; set; }
+        public virtual ICollection<Address> CafeSearchLocations { get; set; }
     }
 }

@@ -8,7 +8,6 @@ using cafeRecAPI.Data;
 using cafeRecAPI.Models;
 using cafeRecAPI.Infra;
 using Microsoft.EntityFrameworkCore;
-using static cafeRecAPI.Models.CafeLocation;
 using cafeRecAPI.Service;
 
 class CafeService : ICafeService
